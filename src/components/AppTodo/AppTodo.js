@@ -25,6 +25,16 @@ export const AppTodo = () => {
   let todoSearch = [];
   if (!searchtodo.length >= 1) {
     todoSearch = conttodos;
+  } else {
+    //filtro
+    todoSearch = conttodos.filter((todo) => {
+      //paso a minuscula
+      const textSearch = todo.text.toLowerCase();
+      //paso a minuscula el estado
+      const textFilter = searchtodo.toLowerCase();
+      //selecciono
+      return textSearch.includes(textFilter);
+    });
   }
 
   console.log(" if", todoSearch);
