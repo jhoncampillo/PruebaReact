@@ -1,1 +1,13 @@
-
+body {
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(
+    200deg,
+    #617a82 0,
+    #3e6571 25%,
+    #074c5e 50%,
+    #00344c 75%,
+    #00213e 100%
+  );
+  color: #000000;
+}

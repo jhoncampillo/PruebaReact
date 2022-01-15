@@ -1,0 +1,9 @@
+.cardOver {
+  color: #300101;
+  background: rgb(43, 24, 24, 0.4);
+  opacity: 0.4;
+}
+
+.throughtlineTodo {
+  text-decoration: line-through;
+}

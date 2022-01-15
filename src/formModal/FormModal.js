@@ -1,10 +1,9 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
-import { useState } from "react";
 
 export const FormModal = () => {
   //estado del text area
-  const [textArea, setTextArea] = useState(" ");
+  //const [textArea, setTextArea] = useState(" ");
 
   // Funcion para adiconar Todo
   const onSubmmitAdd = (e) => {
@@ -38,7 +37,13 @@ export const FormModal = () => {
       <Button variant="primary" type="submit" value="Submit">
         Submit
       </Button>
-      <Button variant="primary" type="submit" value="Submit" className="mx-5">
+      <Button
+        variant="primary"
+        type="submit"
+        value="Submit"
+        className="mx-5"
+        onClick={handleCancel}
+      >
         Cancel
       </Button>
     </Form>

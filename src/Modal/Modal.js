@@ -1,6 +1,4 @@
 import React from "react";
-import Modal from "react-bootstrap/Modal";
-import { Button } from "bootstrap";
 import "./modal.css";
 import ReactDOM from "react-dom";
 

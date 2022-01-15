@@ -1,25 +1,22 @@
 import React from "react";
 //import PropTypes from "prop-types";
 import { ItemTodo } from "../../ItemsTodos/ItemTodo";
-import { AddTodo } from "../addTodo/AddTodo";
 
-export const ListTodos = (props) => {
-  const Todos = [
-    { text: "Trabajo1", terminate: false },
-    { text: "Trabajo2", terminate: false },
-    { text: "Trabajo3", terminate: false },
-    { text: "Trabajo4", terminate: false },
-    { text: "Trabajo5", terminate: false },
-    { text: "Trabajo6", terminate: false },
-    { text: "Trabajo7", terminate: false },
-  ];
+export const ListTodos = ({ todoSearch }) => {
+  //estado contar Todos
 
   return (
-    <div className="row ">
-      <h1>Listado de Todos</h1>
-      {Todos.map((todo) => {
+    <div className="row justify-content-center">
+      <h1 className="row justify-content-center">Listado de ToDos</h1>
+      {todoSearch.map((todo) => {
         //retorno a todo item el map del array
-        return <ItemTodo key={todo.text} text={todo.text}></ItemTodo>;
+        return (
+          <ItemTodo
+            key={todo.text}
+            text={todo.text}
+            terminate={todo.terminate}
+          ></ItemTodo>
+        );
       })}
     </div>
   );
