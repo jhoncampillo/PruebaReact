@@ -11,7 +11,7 @@ const initialState = {
       terminate: false,
     },
     {
-      id: 0,
+      id: 1,
       title: "Segunda Tarea",
       description: "Trabajo 2",
       terminate: true,
@@ -33,8 +33,18 @@ export const ContextProvider = ({ children }) => {
     dispatch({ type: "TOGGLE_MODAL", payload: openModal });
   };
 
+  const toggleTerminate = function (id) {
+    dispatch({ type: "TOGGLE_TERMINATE", payload: id });
+  };
+
+  const deleteTask = function (id) {
+    dispatch({ type: "DELETE_TASK", payload: id });
+  };
+
   return (
-    <globalContext.Provider value={{ ...state, addTask, toggleModal }}>
+    <globalContext.Provider
+      value={{ ...state, addTask, toggleModal, toggleTerminate, deleteTask }}
+    >
       {/* recibo indormacion del estado que preovee el provider */}
       {children}
     </globalContext.Provider>

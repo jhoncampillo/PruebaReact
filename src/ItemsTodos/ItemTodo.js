@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 //import { ListGroup } from "react-bootstrap";
 import { Card } from "react-bootstrap";
+import { globalContext } from "../Context/GlobalContext";
 import "./itemtodo.css";
 
 export const ItemTodo = ({ id, title, description, terminate }) => {
-  //Funciones de Completed y Deleted ToDo
+  const { toggleTerminate, deleteTask } = useContext(globalContext);
+
   const handelOnCompleteTodo = () => {
-    console.log("Todo completado");
+    console.log("Terminate");
+    toggleTerminate(id);
   };
 
-  const handlOnDeleteTodo = () => {
-    console.log("Eliminasta Todo");
+  const handleOnDeleteTodo = () => {
+    deleteTask(id);
   };
 
   return (
@@ -18,12 +21,14 @@ export const ItemTodo = ({ id, title, description, terminate }) => {
       {/* //evaluo si la popiedad termunate es false o true */}
       <Card.Body className={`${terminate && "cardOver"}`}>
         <Card.Title>{title}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">ToDo No.</Card.Subtitle>
+        <Card.Subtitle className="mb-2 text-muted">
+          Tarea numero#{id + 1}
+        </Card.Subtitle>
         <Card.Text className={`${terminate && "throughtlineTodo"}`}>
           {description}
         </Card.Text>
         <Card.Link onClick={handelOnCompleteTodo}>Terminar</Card.Link>
-        <Card.Link onClick={handlOnDeleteTodo}>Eliminar</Card.Link>
+        <Card.Link onClick={handleOnDeleteTodo}>Eliminar</Card.Link>
       </Card.Body>
     </Card>
   );
