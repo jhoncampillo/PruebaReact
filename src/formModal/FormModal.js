@@ -1,22 +1,27 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Form, Button } from "react-bootstrap";
+import { globalContext } from "../Context/GlobalContext";
 
 export const FormModal = () => {
-  //estado del text area
-  //const [textArea, setTextArea] = useState(" ");
+  const { addTask } = useContext(globalContext);
+  const [task, setTask] = useState({});
 
   // Funcion para adiconar Todo
   const onSubmmitAdd = (e) => {
     e.preventDefault();
-    console.log("Adicionando TODO");
+    addTask(task);
   };
 
-  //Capturo el Value del textArea
   const onChangeTextArea = (e) => {
-    console.log(e.target.value);
+    const value = e.target.value;
+    setTask({ ...task, description: value });
   };
 
-  //Funcion para Cancelar Form Modal
+  const onChangeInputTitle = (e) => {
+    const value = e.target.value;
+    setTask({ ...task, title: value });
+  };
+
   const handleCancel = (e) => {
     e.preventDefault();
     console.log("Cancelar");
@@ -26,6 +31,7 @@ export const FormModal = () => {
     <Form onSubmit={onSubmmitAdd}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Adicion un AddTodo</Form.Label>
+        <input className="form-control" onChange={onChangeInputTitle} />
         <textarea
           className="form-control "
           id="exampleControl"
@@ -33,7 +39,6 @@ export const FormModal = () => {
           onChange={onChangeTextArea}
         />
       </Form.Group>
-
       <Button variant="primary" type="submit" value="Submit">
         Submit
       </Button>

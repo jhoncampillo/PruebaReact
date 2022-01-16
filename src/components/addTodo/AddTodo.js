@@ -1,16 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { InputGroup } from "react-bootstrap";
 import { Modalcomponent } from "../../Modal/Modal";
 import { FormModal } from "../../formModal/FormModal";
+import { globalContext } from "../../Context/GlobalContext";
 
 export const AddTodo = () => {
-  const [modalShow, setModalShow] = useState(false);
+  const { openModal, toggleModal } = useContext(globalContext);
 
   const handleModal = (e) => {
     e.preventDefault();
-    setModalShow(true);
-    console.log("Llegue1");
+    toggleModal(true);
   };
 
   return (
@@ -21,7 +21,7 @@ export const AddTodo = () => {
         </button>
       </InputGroup>
       {/* //LLamo el Modal si el estado del modalShow es "True" */}
-      {modalShow && (
+      {openModal && (
         <Modalcomponent>
           <FormModal />
         </Modalcomponent>
