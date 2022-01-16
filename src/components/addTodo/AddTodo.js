@@ -6,11 +6,10 @@ import { FormModal } from "../../formModal/FormModal";
 import { globalContext } from "../../Context/GlobalContext";
 
 export const AddTodo = () => {
-  const { openModal, toggleModal } = useContext(globalContext);
-
+  const [showModal, setShowModal] = useState(false);
   const handleModal = (e) => {
     e.preventDefault();
-    toggleModal(true);
+    setShowModal(true);
   };
 
   return (
@@ -21,9 +20,9 @@ export const AddTodo = () => {
         </button>
       </InputGroup>
       {/* //LLamo el Modal si el estado del modalShow es "True" */}
-      {openModal && (
+      {showModal && (
         <Modalcomponent>
-          <FormModal />
+          <FormModal setShowModal={setShowModal} />
         </Modalcomponent>
       )}
       ;

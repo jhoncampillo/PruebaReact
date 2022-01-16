@@ -4,7 +4,6 @@ export default function appReducer(state, action) {
       const task = action.payload;
       return {
         ...state,
-        openModal: false,
         taskList: [
           ...state.taskList,
           {
@@ -23,16 +22,23 @@ export default function appReducer(state, action) {
           return task;
         }),
       };
-    case "TOGGLE_MODAL":
-      return {
-        ...state,
-        openModal: action?.payload,
-      };
     case "DELETE_TASK":
       return {
         ...state,
         taskList: state.taskList.filter((m) => {
           return m.id !== action?.payload;
+        }),
+      };
+    case "EDIT_TASK":
+      return {
+        ...state,
+        taskList: state.taskList.map((task) => {
+          if (task.id === action?.payload.id) {
+            task = {
+              ...action.payload,
+            };
+          }
+          return task;
         }),
       };
     default:
