@@ -38,6 +38,7 @@ export const ListTodos = () => {
         style={{
           display: "flex",
           gap: "1rem",
+          padding: "1rem",
         }}
       >
         <InputGroup.Text>Buscar</InputGroup.Text>

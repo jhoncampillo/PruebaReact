@@ -6,7 +6,7 @@ import "./CatModal.css";
 
 export const CatModal = ({ setShowModal, taskToEdit }) => {
   const { addTask, editTask } = useContext(globalContext);
-  const [numberToDos, setNumberToDos] = useState(null);
+  const [numberToDos, setNumberToDos] = useState("");
 
   const onSubmmitAdd = (e) => {
     e.preventDefault();
