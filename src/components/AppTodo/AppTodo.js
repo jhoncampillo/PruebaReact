@@ -5,13 +5,17 @@ import { CounterTodo } from "../CounterTodo/CounterTodo";
 import { ListTodos } from "../ListTodo.js/ListTodos";
 import { SearchTodo } from "../searchedTodo/SearchTodo";
 import { ContextProvider } from "../../Context/GlobalContext";
+import { AddTodoCat } from "../AddTodoCat/AddTodoCat";
 
 export const AppTodo = () => {
   return (
     <>
       <ContextProvider>
         <CounterTodo />
-        <AddTodo />
+        <div style={{ display: "flex", gap: "1rem" }}>
+          <AddTodo />
+          <AddTodoCat />
+        </div>
         {/* <SearchTodo /> */}
         <ListTodos />
       </ContextProvider>

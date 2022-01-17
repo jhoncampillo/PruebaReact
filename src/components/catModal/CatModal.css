@@ -1,0 +1,18 @@
+.form {
+  padding: 2rem;
+  background: lightblue;
+  border-radius: 20px;
+  box-shadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px";
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.title {
+  display: block;
+  font-weight: 700;
+  text-align: center;
+}
