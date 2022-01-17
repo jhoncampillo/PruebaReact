@@ -8,7 +8,7 @@ export default function appReducer(state, action) {
           ...state.taskList,
           {
             ...task,
-            id: state.taskList.length,
+            id: Date.now(),
           },
         ],
       };

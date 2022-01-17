@@ -5,18 +5,13 @@ import appReducer from "./AppReducer";
 const initialState = {
   taskList: [
     {
-      id: 0,
+      id: Date.now(),
       title: "Primera Tarea",
       description: "Trabajo 1",
       terminate: false,
     },
-    {
-      id: 1,
-      title: "Segunda Tarea",
-      description: "Trabajo 2",
-      terminate: true,
-    },
   ],
+  searchedToDos: [],
 };
 
 export const globalContext = createContext(initialState);
@@ -40,6 +35,10 @@ export const ContextProvider = ({ children }) => {
     dispatch({ type: "EDIT_TASK", payload: task });
   };
 
+  const search = function (searchString) {
+    dispatch({ type: "SEARCH_TASKS", payload: searchString });
+  };
+
   return (
     <globalContext.Provider
       value={{
@@ -48,6 +47,7 @@ export const ContextProvider = ({ children }) => {
         toggleTerminate,
         deleteTask,
         editTask,
+        search,
       }}
     >
       {/* recibo indormacion del estado que preovee el provider */}

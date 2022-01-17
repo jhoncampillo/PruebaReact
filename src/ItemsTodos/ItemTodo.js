@@ -8,7 +8,7 @@ import { Button } from "react-bootstrap";
 
 import "./itemtodo.css";
 
-export const ItemTodo = ({ id, title, description, terminate }) => {
+export const ItemTodo = ({ id, title, description, terminate, numberTask }) => {
   const { toggleTerminate, deleteTask } = useContext(globalContext);
 
   const [showModal, setShowModal] = useState(false);
@@ -41,7 +41,7 @@ export const ItemTodo = ({ id, title, description, terminate }) => {
         <Card.Body className={`${terminate && "cardOver"}`}>
           <Card.Title>{title}</Card.Title>
           <Card.Subtitle className="mb-2 text-muted">
-            Tarea numero#{id + 1}
+            Tarea numero#{numberTask + 1}
           </Card.Subtitle>
           <Card.Text className={`${terminate && "throughtlineTodo"}`}>
             {description}

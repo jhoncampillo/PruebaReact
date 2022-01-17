@@ -1,24 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FormControl, InputGroup } from "react-bootstrap";
+import { globalContext } from "../../Context/GlobalContext";
 
 export const SearchTodo = ({ searchtodo, setSearchtodo }) => {
-  //creo estado
-  //const [searchtodo, setSearchtodo] = useState(initialState);
+  const { taskList } = useContext(globalContext);
 
-  //Funcion para buscar ToDos
   const handleOnChangueTodo = (e) => {
-    console.log(e.target.value);
-    //Actualizo el valor del input al State
     setSearchtodo(e.target.value);
   };
 
   return (
-    <div>
-      <InputGroup.Text id="inputGroup-sizing-lg">Buscar</InputGroup.Text>
+    <div
+      style={{
+        display: "flex",
+        gap: "1rem",
+      }}
+    >
+      <InputGroup.Text>Buscar</InputGroup.Text>
       <FormControl
-        aria-label="Large"
-        aria-describedby="inputGroup-sizing-sm"
-        placeholder="Buscar ToDo"
+        placeholder="Buscar ToDo's"
         value={searchtodo}
         onChange={handleOnChangueTodo}
       />

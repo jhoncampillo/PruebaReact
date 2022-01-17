@@ -14,9 +14,15 @@ export const AddTodo = () => {
 
   return (
     <>
-      <InputGroup size="lg">
+      <InputGroup
+        size="lg"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
         <button onClick={handleModal} className="btn btn-primary">
-          Add-Todo
+          Agregar tarea
         </button>
       </InputGroup>
       {/* //LLamo el Modal si el estado del modalShow es "True" */}

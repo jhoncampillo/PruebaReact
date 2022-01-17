@@ -5,10 +5,13 @@ import "./FormModal.css";
 
 export const FormModal = ({ setShowModal, taskToEdit }) => {
   const { addTask, editTask } = useContext(globalContext);
-  const [task, setTask] = useState(taskToEdit ?? {});
-  console.log(taskToEdit);
+  const [task, setTask] = useState(
+    taskToEdit ?? {
+      title: "",
+      description: "",
+    }
+  );
 
-  // Funcion para adiconar Todo
   const onSubmmitAdd = (e) => {
     e.preventDefault();
 
@@ -56,7 +59,7 @@ export const FormModal = ({ setShowModal, taskToEdit }) => {
       </Form.Group>
       <div className="buttons">
         <Button variant="primary" type="submit" value="Submit">
-          {task.id >= 0 ? "Edit" : "Create"}
+          {task.id >= 0 ? "Editar" : "Crear"}
         </Button>
         <Button
           variant="danger"

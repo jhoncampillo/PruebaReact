@@ -12,7 +12,7 @@ export const AppTodo = () => {
       <ContextProvider>
         <CounterTodo />
         <AddTodo />
-        <SearchTodo />
+        {/* <SearchTodo /> */}
         <ListTodos />
       </ContextProvider>
     </>
