@@ -1,13 +1,14 @@
 import React, { useContext } from "react";
-import { Badge, Button } from "react-bootstrap";
+//import { Badge, Button } from "react-bootstrap";
 import { globalContext } from "../../Context/GlobalContext";
 import "./CounterTodo.css";
 
 export const CounterTodo = () => {
   const { taskList } = useContext(globalContext);
-  const termanitedToDosNumber = taskList.filter(
-    (task) => task.terminate
-  ).length;
+  console.log("Hola");
+  const termanitedToDosNumber = ""
+    ? []
+    : taskList.filter((task) => task.terminate).length;
 
   return (
     <>

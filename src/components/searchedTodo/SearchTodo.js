@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
+//import React, { useContext } from "react";
 import { FormControl, InputGroup } from "react-bootstrap";
-import { globalContext } from "../../Context/GlobalContext";
+//import { globalContext } from "../../Context/GlobalContext";
 
 export const SearchTodo = ({ searchtodo, setSearchtodo }) => {
-  const { taskList } = useContext(globalContext);
+  // const { taskList } = useContext(globalContext);
 
   const handleOnChangueTodo = (e) => {
     setSearchtodo(e.target.value);

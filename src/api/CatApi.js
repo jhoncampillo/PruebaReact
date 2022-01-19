@@ -6,7 +6,7 @@ export const getFactFromCatApi = async () => {
   const { fact } = await resp.json();
   return fact;
 };
-
+//Creo promesas del tamo del aerray
 export const getCatsFromApi = (numberOfTasks) => {
   return Promise.all(
     //Creo el array iterable

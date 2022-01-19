@@ -5,7 +5,7 @@ import { globalContext } from "../../Context/GlobalContext";
 import "./CatModal.css";
 
 export const CatModal = ({ setShowModal, taskToEdit }) => {
-  const { addTask, editTask } = useContext(globalContext);
+  const { addTask } = useContext(globalContext);
   const [numberToDos, setNumberToDos] = useState("");
 
   const onSubmmitAdd = (e) => {

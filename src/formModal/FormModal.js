@@ -4,13 +4,27 @@ import { globalContext } from "../Context/GlobalContext";
 import "./FormModal.css";
 
 export const FormModal = ({ setShowModal, taskToEdit }) => {
+  //state para editar
   const { addTask, editTask } = useContext(globalContext);
+  //statte de tareas
   const [task, setTask] = useState(
     taskToEdit ?? {
       title: "",
       description: "",
     }
   );
+  //Desestructuro
+  const { title, description } = task;
+  //Aplico el useEffect a todo el Form
+  // useEffect(() => {
+  //   console.log("Hey");
+  //   localStorage.setItem("task", JSON.stringify());
+  // }, []);
+  //arreglo de dependencias
+
+  // useEffect(() => {
+  //   console.log("Hey");
+  // }, [title]);
 
   const onSubmmitAdd = (e) => {
     e.preventDefault();
@@ -19,6 +33,7 @@ export const FormModal = ({ setShowModal, taskToEdit }) => {
       editTask(task);
     } else {
       addTask(task);
+      console.log("Hola ", task);
     }
     setShowModal(false);
   };
@@ -26,6 +41,7 @@ export const FormModal = ({ setShowModal, taskToEdit }) => {
   const onChangeTextArea = (e) => {
     const value = e.target.value;
     setTask({ ...task, description: value });
+    //console.log(setTask);
   };
 
   const onChangeInputTitle = (e) => {
@@ -41,19 +57,21 @@ export const FormModal = ({ setShowModal, taskToEdit }) => {
   return (
     <Form className="form" onSubmit={onSubmmitAdd}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label className="title">Adicion un AddTodo</Form.Label>
+        <Form.Label className="title">Adiciono un AddTodo</Form.Label>
         <input
+          name="title"
           className="form-control"
           onChange={onChangeInputTitle}
           placeholder="Titulo de la tarea"
-          value={task.title}
+          value={title}
         />
         <textarea
+          name="description"
           className="form-control "
           id="exampleControl"
           placeholder="Descripcion de la tarea"
           rows="4"
-          value={task.description}
+          value={description}
           onChange={onChangeTextArea}
         />
       </Form.Group>

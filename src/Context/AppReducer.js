@@ -3,6 +3,7 @@ export default function appReducer(state, action) {
     case "ADD_TASK":
       const task = action.payload;
       return {
+        //anado un elemento -- traigo lo que tiene
         ...state,
         taskList: [
           ...state.taskList,
